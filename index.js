@@ -1,25 +1,18 @@
 const express = require('express')
-const mongoose = require('mongoose')
-var jwt = require('jsonwebtoken');
-var bcrypt = require('bcryptjs');
-const URL = 'mongodb://localhost:27017/harsh'
-require("express-group-routes");
 const app = express()
-var bodyparser = require('body-parser')
-const abc = require('./config/db.config')
-
-mongoose.connect(URL, { UseNewUrlParser: true })
-
+const sqlCon = require('./config/db.config')
+const route = require('./routes/routes')
 app.use(express.urlencoded({ extended: false }));
-
-app.use('/images', express.static('public/images'));
-
 app.use(express.json())
 
-const dkRouter = require('./routes/routes');
-require('./routes/routes')(app)
- 
 
-app.listen(1000, () => {
+app.listen(3000, () => {
     console.log('server connected')
 }) 
+
+
+
+
+
+ 
+
